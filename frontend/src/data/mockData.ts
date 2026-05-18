@@ -1,10 +1,5 @@
 /** Rich demo analytics (matches premium CRM UI when DB is empty or for charts) */
 
-export const DEMO_CREDENTIALS = {
-  admin: { email: 'admin@salesflow.io', password: 'demo123456' },
-  sales: { email: 'sales@salesflow.io', password: 'demo123456' },
-};
-
 export const MOCK_KPI = [
   {
     label: 'Conversion Rate',

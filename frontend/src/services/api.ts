@@ -1,7 +1,16 @@
 import axios from 'axios';
 
+/** Ensures base URL ends with /api (backend mounts routes under /api). */
+const normalizeApiBaseUrl = (url: string): string => {
+  const trimmed = url.replace(/\/+$/, '');
+  if (trimmed.endsWith('/api')) return trimmed;
+  return `${trimmed}/api`;
+};
+
+const rawBaseUrl = import.meta.env.VITE_API_URL || 'http://localhost:5000/api';
+
 const API = axios.create({
-  baseURL: import.meta.env.VITE_API_URL || 'http://localhost:5000/api',
+  baseURL: normalizeApiBaseUrl(rawBaseUrl),
   headers: {
     'Content-Type': 'application/json',
   },

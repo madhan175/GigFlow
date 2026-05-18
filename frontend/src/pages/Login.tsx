@@ -56,16 +56,20 @@ export const Login: React.FC<LoginProps> = ({ onNavigateToRegister }) => {
         </div>
       )}
 
-      <form onSubmit={handleSubmit} className="space-y-4">
+      <form onSubmit={handleSubmit} className="space-y-4" autoComplete="off">
         <div>
           <label className="sr-only">Email address</label>
           <div className="relative">
             <Mail size={18} className="absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-500" />
             <input
               type="email"
+              name="login-email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              placeholder="Email address"
+              placeholder="Enter your email"
+              autoComplete="off"
+              readOnly
+              onFocus={(e) => e.target.removeAttribute('readOnly')}
               className={`${inputClass} ${emailError ? 'border-red-500/50' : ''}`}
             />
           </div>
@@ -78,9 +82,13 @@ export const Login: React.FC<LoginProps> = ({ onNavigateToRegister }) => {
             <Lock size={18} className="absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-500" />
             <input
               type={showPassword ? 'text' : 'password'}
+              name="login-password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-              placeholder="Password"
+              placeholder="Enter your password"
+              autoComplete="new-password"
+              readOnly
+              onFocus={(e) => e.target.removeAttribute('readOnly')}
               className={`${inputClass} ${passwordError ? 'border-red-500/50' : ''}`}
             />
             <button
