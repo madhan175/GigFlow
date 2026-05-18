@@ -33,7 +33,7 @@
 1. Upload your demo to YouTube  
 2. Replace `YOUR_VIDEO_ID` with the ID from `youtube.com/watch?v=YOUR_VIDEO_ID`
 
-<!-- [![SalesFlow CRM Demo](https://img.youtube.com/vi/YOUR_VIDEO_ID/maxresdefault.jpg)](https://www.youtube.com/watch?v=YOUR_VIDEO_ID) -->
+
 
 **Placeholder** — add your link here:
 
@@ -71,9 +71,7 @@ Paste your share link: `_Add Loom or Google Drive link here_`
     <td align="center"><b>Analytics</b></td>
   </tr>
   <tr>
-    <td><img src="./assets/salesflow-crm-dashboard-mockup.png" alt="Dashboard" width="100%" /></td>
-    <td><img src="./assets/salesflow-login-mockup.png" alt="Login" width="100%" /></td>
-    <td><img src="./assets/salesflow-analytics-mockup.png" alt="Analytics" width="100%" /></td>
+    
   </tr>
 </table>
 
