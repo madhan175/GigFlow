@@ -2,16 +2,14 @@ import React, { useState } from 'react';
 import { useAuth } from '../context/AuthContext';
 import { AuthLayout } from '../components/layout/AuthLayout';
 import { Mail, Lock, Eye, EyeOff, ArrowRight, ShieldAlert } from 'lucide-react';
-import { DEMO_CREDENTIALS } from '../data/mockData';
-
 interface LoginProps {
   onNavigateToRegister: () => void;
 }
 
 export const Login: React.FC<LoginProps> = ({ onNavigateToRegister }) => {
   const { login } = useAuth();
-  const [email, setEmail] = useState(DEMO_CREDENTIALS.admin.email);
-  const [password, setPassword] = useState(DEMO_CREDENTIALS.admin.password);
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
   const [remember, setRemember] = useState(true);
   const [emailError, setEmailError] = useState('');
@@ -57,10 +55,6 @@ export const Login: React.FC<LoginProps> = ({ onNavigateToRegister }) => {
           <span>{apiError}</span>
         </div>
       )}
-
-      <p className="text-[11px] text-violet-300/80 bg-violet-500/10 border border-violet-500/20 rounded-lg px-3 py-2 mb-5 text-center">
-        Demo: run <code className="text-violet-200">npm run seed</code> in backend, then use pre-filled credentials
-      </p>
 
       <form onSubmit={handleSubmit} className="space-y-4">
         <div>

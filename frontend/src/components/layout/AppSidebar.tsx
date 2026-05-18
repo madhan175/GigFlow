@@ -1,9 +1,10 @@
 import React from 'react';
 import {
   LayoutDashboard, Users, Contact, Handshake, CheckSquare, Calendar,
-  FileText, BarChart3, Zap, Settings, Crown, Headphones, Sparkles,
+  FileText, BarChart3, Zap, Settings, Crown, Headphones, Sparkles, LogOut,
 } from 'lucide-react';
 import { DashboardPage } from '../../pages/Dashboard';
+import { useAuth } from '../../context/AuthContext';
 
 interface NavItem {
   id?: DashboardPage;
@@ -20,6 +21,7 @@ interface AppSidebarProps {
 }
 
 export const AppSidebar: React.FC<AppSidebarProps> = ({ activePage, onNavigate, userRole }) => {
+  const { logout } = useAuth();
   const mainNav: NavItem[] = [
     { id: 'dashboard', label: 'Dashboard', icon: <LayoutDashboard size={18} /> },
     { id: 'leads', label: 'Leads', icon: <Users size={18} /> },
@@ -86,6 +88,14 @@ export const AppSidebar: React.FC<AppSidebarProps> = ({ activePage, onNavigate, 
         <button type="button" className="w-full flex items-center gap-2 px-3 py-2 text-xs text-slate-500 hover:text-slate-300">
           <Headphones size={14} />
           Need help? Contact Support
+        </button>
+        <button
+          type="button"
+          onClick={logout}
+          className="w-full flex items-center gap-2 px-3 py-2.5 text-xs font-bold text-red-400 hover:bg-red-950/30 hover:text-red-300 rounded-xl transition"
+        >
+          <LogOut size={14} />
+          Logout
         </button>
       </div>
     </aside>
